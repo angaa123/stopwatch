@@ -1,4 +1,4 @@
-let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
+let milliseconds = 0 , seconds = 0, minutes = 0, hours =0;
 let display = document.querySelector(".time");
 let timerId = null;
 
@@ -15,8 +15,8 @@ document.getElementById("stop").addEventListener("click", () => {
 
 document.getElementById("reset").addEventListener("click", () => {
 	clearInterval(timerId);
-	[milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
-	display.innerHTML = "00:00:00:00";
+	milliseconds = 0, seconds = 0, minutes = 0, hours = 0;
+	display.innerHTML = "0:0:0:0";
 });
 
 function updateTimer() {
@@ -34,15 +34,11 @@ function updateTimer() {
 		}
 	}
 
-	let h = hours < 10 ? "0" + hours : hours;
-	let m = minutes < 10 ? "0" + minutes : minutes;
-	let s = seconds < 10 ? "0" + seconds : seconds;
+	let h = hours ;
+	let m = minutes ;
+	let s = seconds ;
 	let ms =
-		milliseconds < 10
-			? "00" + milliseconds
-			: milliseconds < 100
-			? "0" + milliseconds
-			: milliseconds;
+		milliseconds;
 
 	display.innerHTML = `${h}:${m}:${s}:${ms}`;
 }
